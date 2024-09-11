@@ -1,6 +1,5 @@
 // main.js or your entry file
 const express = require('express');
-const admin = require('./Services/firebaseConfig');
 const cors = require('cors');
 const Routes = require('./Services/routes/routes'); 
 
@@ -13,10 +12,15 @@ app.use(cors({
   methods: ['GET', 'POST'], 
   allowedHeaders: ['Content-Type', 'Authorization'], 
 }));
+
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.send("Welcome to Firebase Server!");
+});
 
 app.use('/', Routes);
+
 
 
 app.listen(port, () => {
