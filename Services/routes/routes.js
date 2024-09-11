@@ -3,9 +3,7 @@ const router = express.Router();
 const admin = require('../firebaseConfig');
 const db = admin.firestore();
 
-router.get('/', (req, res) => {
-    res.send("Welcome to Firebase Server!");
-});
+
 
 router.get('/api/checkuser', async (req, res) => {
     const { email } = req.query;
